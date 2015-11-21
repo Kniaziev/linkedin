@@ -1,4 +1,6 @@
 package com.linkedin;
 
-public class Gmail {
+public class Gmail /*extends AbstractPage*/{
+
+
 }

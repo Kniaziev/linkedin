@@ -2,10 +2,14 @@ package com.linkedin;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.DataProvider;
 
-public class LoginRegistrationPage {
+import static org.openqa.selenium.support.PageFactory.*;
+
+public class LoginRegistrationPage /*extends AbstractPage*/ {
     protected WebDriver driver;
 
     public LoginRegistrationPage(WebDriver driver) {
@@ -54,7 +58,7 @@ public class LoginRegistrationPage {
         loginEmailInput.sendKeys(userEmail);
         loginPasswordInput.sendKeys(userPassword);
         loginSubmitButton.click();
-        return PageFactory.initElements(driver, HomePage.class);
+        return initElements(driver, HomePage.class);
     }
 
     public void submitRegistrationForm(String firstName, String lastName, String email, String password){
@@ -68,20 +72,29 @@ public class LoginRegistrationPage {
 
     public RecoveryPage openRecoveryPage(){
         forgotPass.click();
-        return PageFactory.initElements(driver, RecoveryPage.class);
+        return initElements(driver, RecoveryPage.class);
 
     }
 
     public void open() {
         driver.get("https://www.linkedin.com/");
+        //final LoginRegistrationPage loginRegistrationPage = PageFactory.initElements(driver, LoginRegistrationPage.class);
+
+        //PageFactory.initElements(driver, TestCase_POF.class);
+        //loginRegistrationPage = PageFactory.initElements(new FirefoxDriver(), LoginRegistrationPage.class)
     }
+
 
     public void close() {
         driver.quit();
     }
 
 
+    //put pagefactory into page object
 
+   /* public LoginRegistrationPageFactory(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }*/
 
-
-}
+    }

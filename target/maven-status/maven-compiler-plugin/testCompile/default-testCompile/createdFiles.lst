@@ -1,0 +1,9 @@
+com\linkedin\LoginTests.class
+com\linkedin\AbstractPage.class
+com\linkedin\RecoveryPage.class
+com\linkedin\RecoveryPageNext.class
+com\linkedin\LoginRegistrationPage.class
+com\linkedin\ProfilePage.class
+com\linkedin\Gmail.class
+com\linkedin\RegistrationTests.class
+com\linkedin\HomePage.class

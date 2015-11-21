@@ -5,9 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
+public class HomePage /*extends AbstractPage*/{
     protected WebDriver driver;
-
+//nado update page object chtobi nasledovalo ot Abstrakta.
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
@@ -20,13 +20,13 @@ public class HomePage {
         return PageFactory.initElements(driver, ProfilePage.class);
     }
 
-    public boolean isPageLoaded(){
+    /*public boolean isPageLoaded(){
         if (driver.getTitle().contentEquals("Welcome! | LinkedIn")) {
             return true;
         }
         return false;
-    }
-
+    }*/
+    public HomePage homePage;
     public void close() {
         driver.quit();
     }
