@@ -2,14 +2,11 @@ package com.linkedin;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.DataProvider;
 
-import static org.openqa.selenium.support.PageFactory.*;
+import static org.openqa.selenium.support.PageFactory.initElements;
 
-public class LoginRegistrationPage /*extends AbstractPage*/ {
+public class LoginRegistrationPage extends AbstractPage {
     protected WebDriver driver;
 
     public LoginRegistrationPage(WebDriver driver) {
@@ -78,12 +75,11 @@ public class LoginRegistrationPage /*extends AbstractPage*/ {
 
     public void open() {
         driver.get("https://www.linkedin.com/");
-        //final LoginRegistrationPage loginRegistrationPage = PageFactory.initElements(driver, LoginRegistrationPage.class);
-
-        //PageFactory.initElements(driver, TestCase_POF.class);
+        //LoginRegistrationPage loginRegistrationPage = PageFactory.initElements(driver, LoginRegistrationPage.class);
+        //PageFactory.initElements(driver, LoginRegistrationPage.class);
         //loginRegistrationPage = PageFactory.initElements(new FirefoxDriver(), LoginRegistrationPage.class)
+        //return PageFactory.initElements(driver, HomePage.class);
     }
-
 
     public void close() {
         driver.quit();
@@ -97,4 +93,4 @@ public class LoginRegistrationPage /*extends AbstractPage*/ {
         PageFactory.initElements(driver, this);
     }*/
 
-    }
+}

@@ -1,5 +1,6 @@
 package com.linkedin;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -16,10 +17,16 @@ public class LoginTests {
     //private HomePage homePage;
     //private ProfilePage profilePage;
     String userEmail = "testautomation.acc@gmail.com";
+    private static WebDriver driver;
+
+    public static WebDriver getDriver() {
+        return driver;
+    }
 
     @BeforeMethod
     public void initLoginPage(){
-       loginRegistrationPage = PageFactory.initElements(new FirefoxDriver(), LoginRegistrationPage.class);
+        loginRegistrationPage = PageFactory.initElements(new FirefoxDriver(), LoginRegistrationPage.class);
+            //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
    /* @AfterMethod
@@ -41,12 +48,13 @@ public class LoginTests {
         HomePage homePage = loginRegistrationPage.loginUser(userEmail,userPassword);
         switch(userPassword) {
             case "Testautomation123":
-               // Assert.assertTrue(loginRegistrationPage());
+                // Assert.assertTrue(loginRegistrationPage());
+               // Assert.assertTrue(homePage.isPageLoaded("Welcome! | LinkedIn"));
                 break;
             case "1234":
                 String errorMsg = "Please correct the marked field(s) below.";
-                //Assert.assertEquals(loginRegistrationPage.getAlertErrorMessageText(),errorMsg,"Expected error message not found");
-                //Assert.assertFalse(homePage.isPageLoaded());
+                Assert.assertEquals(loginRegistrationPage.getAlertErrorMessageText(),errorMsg,"Expected error message not found");
+                Assert.assertFalse(homePage.isPageLoaded());
                 break;
             default:
                 break;
@@ -57,7 +65,7 @@ public class LoginTests {
     public void loadProfilePageTest(){
         String userPassword = "Testautomation123";
         loginRegistrationPage = PageFactory.initElements(new FirefoxDriver(), LoginRegistrationPage.class);
-        loginRegistrationPage.open();
+
         HomePage homePage = loginRegistrationPage.loginUser(userEmail,userPassword);
         ProfilePage profilePage = homePage.openProfilePage();
         //Assert that profile page is loaded
@@ -67,7 +75,7 @@ public class LoginTests {
     @Test
     public void loadRecoveryPageTest(){
 
-       // loginRegistrationPage = PageFactory.initElements(new FirefoxDriver(), LoginRegistrationPage.class);
+        //loginRegistrationPage = PageFactory.initElements(new FirefoxDriver(), LoginRegistrationPage.class);
         loginRegistrationPage.open();
         try {
             Thread.sleep(5000);
@@ -81,6 +89,5 @@ public class LoginTests {
         //loginRegistrationPage.close();
         //driver.get("gmail.com");
 
-        }
     }
-
+}
