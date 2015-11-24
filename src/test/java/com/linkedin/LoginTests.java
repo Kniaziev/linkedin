@@ -17,6 +17,8 @@ public class LoginTests {
     //private HomePage homePage;
     //private ProfilePage profilePage;
     String userEmail = "testautomation.acc@gmail.com";
+
+
     private static WebDriver driver;
 
     public static WebDriver getDriver() {
@@ -74,7 +76,7 @@ public class LoginTests {
 
     @Test
     public void loadRecoveryPageTest(){
-
+        String userPassword = "Testautomation123";
         //loginRegistrationPage = PageFactory.initElements(new FirefoxDriver(), LoginRegistrationPage.class);
         loginRegistrationPage.open();
         try {
@@ -86,8 +88,7 @@ public class LoginTests {
         recoveryPage = loginRegistrationPage.openRecoveryPage();
         recoveryPageNext = recoveryPage.openRecoveryPageNext();
         gmail = recoveryPageNext.openGmail();
-        //loginRegistrationPage.close();
-        //driver.get("gmail.com");
+        gmail.gmailLogin(userEmail,userPassword);
 
     }
 }
