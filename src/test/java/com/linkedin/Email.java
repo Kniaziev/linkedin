@@ -4,9 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
+import org.openqa.selenium.support.PageFactory;
 
-import static org.openqa.selenium.support.PageFactory.initElements;
 public class Email extends AbstractPage{
     protected static WebDriver driver;
     String Searchquery = "TestAutomation, here's the link to reset your password";
@@ -23,19 +22,33 @@ public class Email extends AbstractPage{
     /*@FindBy(xpath = "//a[startsWith(), 'https://www.linkedin.com']")
     private static WebElement recoveryMail;*/
 
-    @FindBys({@FindBy(css = ".CP table tbody"), @FindBy(tagName = "tr")})
-    private static WebElement mailBody;
+   /* @FindBys({@FindBy(css = ".CP table tbody"), @FindBy(tagName = "tr")})
+    private static WebElement mailBody;*/
+    //@FindBy(xpath = "//*[contains(text(),'here')]")
+   @FindBy(xpath = "//td/a[text()='here']")
+   private static WebElement hereLink;
 
-   /* public void getEmail(){
-        gmail.driver.findElement(By.cssSelector(".Cp table tbody")).findElements(By.tagName("tr")).get(0).click();
+    public void getEmail(){
+        driver.findElement(By.cssSelector(".Cp table tbody")).findElements(By.tagName("tr")).get(0).click();
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        }
 
-    }*/
+    public NewPassPage getNewPass(){
+        String recoveryLink = hereLink.getAttribute("href");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        driver.get(recoveryLink);
+        return PageFactory.initElements(driver, NewPassPage.class);
 
 
-
-
-
-
+    }
 
    // ClickAt|  //div[text()='TestAutomation, here's the link to reset your password']
 

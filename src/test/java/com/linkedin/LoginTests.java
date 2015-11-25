@@ -1,6 +1,5 @@
 package com.linkedin;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -16,9 +15,11 @@ public class LoginTests {
     private RecoveryPageNext recoveryPageNextFinal;
     private Gmail gmail;
     private Email email;
-    //private HomePage homePage;
+    private NewPassPage newPassPage;
+    private HomePage homePage;
     //private ProfilePage profilePage;
     String userEmail = "testautomation.acc@gmail.com";
+    String newUserPass = "Automation123";
 
 
     private static WebDriver driver;
@@ -90,15 +91,38 @@ public class LoginTests {
         recoveryPage = loginRegistrationPage.openRecoveryPage();
         recoveryPageNext = recoveryPage.openRecoveryPageNext();
         gmail = recoveryPageNext.openGmail();
-
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        gmail.gmailLogin(userEmail,userPassword);
-        gmail.driver.findElement(By.cssSelector(".Cp table tbody")).findElements(By.tagName("tr")).get(0).click();
-       // Email email = gmail.gmailLogin(userEmail,userPassword);
-        //gmail.getEmail();
+        email = gmail.gmailLogin(userEmail,userPassword);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //email = gmail.gmailLogin(userEmail,userPassword);
+        //email.driver.findElement(By.cssSelector(".Cp table tbody")).findElements(By.tagName("tr")).get(0).click();
+        //email = gmail.gmailLogin(userEmail,userPassword);
+        email.getEmail();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //newPassPage = email.getNewPass();
+        email.getNewPass();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        homePage = newPassPage.changePass(newUserPass);
+        homePage.close();
+        loginRegistrationPage.open();
+        homePage = loginRegistrationPage.loginUser(userEmail,newUserPass);
+        Assert.assertTrue(homePage.isPageLoaded());
+
     }
 }
