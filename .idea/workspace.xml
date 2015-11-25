@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e3f9dd6c-3747-4c42-9e02-98b370d2b7f4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/linkedin/Email.java" afterPath="$PROJECT_DIR$/src/test/java/com/linkedin/Email.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/linkedin/Gmail.java" afterPath="$PROJECT_DIR$/src/test/java/com/linkedin/Gmail.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/linkedin/LoginTests.java" afterPath="$PROJECT_DIR$/src/test/java/com/linkedin/LoginTests.java" />
     </list>
     <ignored path="test-automation.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,8 +47,8 @@
       <file leaf-file-name="LoginTests.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/LoginTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7622378">
-              <caret line="98" column="49" selection-start-line="98" selection-start-column="49" selection-end-line="98" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.82167834">
+              <caret line="100" column="65" selection-start-line="100" selection-start-column="65" selection-end-line="100" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#819#820#0" expanded="true" />
@@ -764,7 +761,13 @@
       <option name="project" value="LOCAL" />
       <updated>1448379817132</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added getEmail method">
+      <created>1448464212916</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1448464212916</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -842,7 +845,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added gmail and email classes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added gmail and email classes." />
+    <MESSAGE value="Added getEmail method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added getEmail method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1335,8 +1339,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/LoginTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7622378">
-          <caret line="98" column="49" selection-start-line="98" selection-start-column="49" selection-end-line="98" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.82167834">
+          <caret line="100" column="65" selection-start-line="100" selection-start-column="65" selection-end-line="100" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#819#820#0" expanded="true" />
