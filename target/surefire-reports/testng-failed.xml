@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [admin-app UI Tests]">
+  <test name="Webdriver Tests(failed)" preserve-order="false">
+    <classes>
+      <class name="com.linkedin.LoginTests">
+        <methods>
+          <include name="initLoginPage"/>
+          <include name="userLoginGenericTest" invocation-numbers="1"/>
+          <include name="loadProfilePageTest"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+</suite>

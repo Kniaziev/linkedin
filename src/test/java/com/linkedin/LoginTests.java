@@ -1,5 +1,6 @@
 package com.linkedin;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -14,9 +15,12 @@ public class LoginTests {
     private RecoveryPageNext recoveryPageNext;
     private RecoveryPageNext recoveryPageNextFinal;
     private Gmail gmail;
+    private Email email;
     //private HomePage homePage;
     //private ProfilePage profilePage;
     String userEmail = "testautomation.acc@gmail.com";
+
+
     private static WebDriver driver;
 
     public static WebDriver getDriver() {
@@ -74,7 +78,7 @@ public class LoginTests {
 
     @Test
     public void loadRecoveryPageTest(){
-
+        String userPassword = "Testautomation123";
         //loginRegistrationPage = PageFactory.initElements(new FirefoxDriver(), LoginRegistrationPage.class);
         loginRegistrationPage.open();
         try {
@@ -86,8 +90,15 @@ public class LoginTests {
         recoveryPage = loginRegistrationPage.openRecoveryPage();
         recoveryPageNext = recoveryPage.openRecoveryPageNext();
         gmail = recoveryPageNext.openGmail();
-        //loginRegistrationPage.close();
-        //driver.get("gmail.com");
 
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        gmail.gmailLogin(userEmail,userPassword);
+        gmail.driver.findElement(By.cssSelector(".Cp table tbody")).findElements(By.tagName("tr")).get(0).click();
+       // Email email = gmail.gmailLogin(userEmail,userPassword);
+        //gmail.getEmail();
     }
 }
