@@ -1,5 +1,6 @@
 package com.linkedin;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import static org.openqa.selenium.support.PageFactory.initElements;
 
 public class Gmail extends AbstractPage{
-    protected WebDriver driver;
+    protected static WebDriver driver;
     public Gmail(WebDriver driver) {
         this.driver = driver;
     }
@@ -35,6 +36,10 @@ public class Gmail extends AbstractPage{
         gmailPassInput.sendKeys(userPassword);
         gmailSign.click();
         return initElements(driver, Email.class);
+
+    }
+    public static void getEmail(){
+        Gmail.driver.findElement(By.cssSelector(".Cp table tbody")).findElements(By.tagName("tr")).get(0).click();
 
     }
 
