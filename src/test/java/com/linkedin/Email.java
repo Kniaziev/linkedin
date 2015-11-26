@@ -8,7 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Email extends AbstractPage{
     protected static WebDriver driver;
-    String Searchquery = "TestAutomation, here's the link to reset your password";
+
+    String searchQuery = "security-noreply@linkedin.com";
     public Email(WebDriver driver) {
         this.driver = driver;
     }
@@ -19,6 +20,11 @@ public class Email extends AbstractPage{
     @FindBy(xpath = "//*[@aria-label='Search Gmail']" )
     private static WebElement gmailSearch;
 
+    public void searchMail(String Searchquery ){
+        gmailSearchInput.sendKeys(Searchquery);
+        gmailSearch.click();
+
+    }
     /*@FindBy(xpath = "//a[startsWith(), 'https://www.linkedin.com']")
     private static WebElement recoveryMail;*/
 

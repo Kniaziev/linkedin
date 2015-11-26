@@ -80,6 +80,7 @@ public class LoginTests {
     @Test
     public void loadRecoveryPageTest(){
         String userPassword = "Testautomation123";
+        //String searchQuery = "security-noreply@linkedin.com";
         //loginRegistrationPage = PageFactory.initElements(new FirefoxDriver(), LoginRegistrationPage.class);
         loginRegistrationPage.open();
         try {
@@ -106,11 +107,13 @@ public class LoginTests {
         //email.driver.findElement(By.cssSelector(".Cp table tbody")).findElements(By.tagName("tr")).get(0).click();
         //email = gmail.gmailLogin(userEmail,userPassword);
         email.getEmail();
+        //email.searchMail(searchQuery);
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+       // email.searchMail(searchQuery);
         newPassPage = email.getNewPass();
         //email.getNewPass();
         try {
