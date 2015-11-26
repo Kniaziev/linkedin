@@ -111,17 +111,19 @@ public class LoginTests {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        //newPassPage = email.getNewPass();
-        email.getNewPass();
+        newPassPage = email.getNewPass();
+        //email.getNewPass();
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         homePage = newPassPage.changePass(newUserPass);
-        homePage.close();
+        loginRegistrationPage.close();
+        loginRegistrationPage = PageFactory.initElements(new FirefoxDriver(), LoginRegistrationPage.class);
         loginRegistrationPage.open();
-        homePage = loginRegistrationPage.loginUser(userEmail,newUserPass);
+        HomePage homePage = loginRegistrationPage.loginUser(userEmail,newUserPass);
+        //homePage = loginRegistrationPage.loginUser(userEmail,newUserPass);
         Assert.assertTrue(homePage.isPageLoaded());
 
     }

@@ -12,9 +12,9 @@ public abstract class AbstractPage {
         return new FirefoxDriver();
     }
 
-   /* protected WebDriver driver;
+   /*protected WebDriver driver;
 
-    public AbstractPage(WebDriver driver){
+    public AbstractPage(){
         this.driver = driver;
     }*/
 

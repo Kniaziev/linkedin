@@ -10,6 +10,7 @@ public class LoginRegistrationPage extends AbstractPage {
     protected WebDriver driver;
 
     public LoginRegistrationPage(WebDriver driver) {
+        super();
         this.driver = driver;
     }
 

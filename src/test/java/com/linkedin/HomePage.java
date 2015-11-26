@@ -27,9 +27,9 @@ public class HomePage extends AbstractPage{
         }
         return false;
     }
-    public HomePage homePage;
-    public void close() {
+    //public HomePage homePage;
+   public void close() {
         driver.quit();
-    }
+       }
 
 }
