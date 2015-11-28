@@ -1,12 +1,15 @@
 package com.linkedin;
 
+import com.jayway.restassured.response.Response;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import static com.jayway.restassured.RestAssured.get;
+import static org.testng.Assert.assertEquals;
 
 public class LoginTests {
     private LoginRegistrationPage loginRegistrationPage;
@@ -28,7 +31,7 @@ public class LoginTests {
         return driver;
     }
 
-    @BeforeMethod
+   // @BeforeMethod
     public void initLoginPage(){
         loginRegistrationPage = PageFactory.initElements(new FirefoxDriver(), LoginRegistrationPage.class);
             //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -54,11 +57,11 @@ public class LoginTests {
         switch(userPassword) {
             case "Testautomation123":
                 // Assert.assertTrue(loginRegistrationPage());
-               // Assert.assertTrue(homePage.isPageLoaded("Welcome! | LinkedIn"));
+               Assert.assertTrue(homePage.isPageLoaded("Welcome! | LinkedIn"));
                 break;
             case "1234":
                 String errorMsg = "Please correct the marked field(s) below.";
-                Assert.assertEquals(loginRegistrationPage.getAlertErrorMessageText(),errorMsg,"Expected error message not found");
+                assertEquals(loginRegistrationPage.getAlertErrorMessageText(),errorMsg,"Expected error message not found");
                 Assert.assertFalse(homePage.isPageLoaded());
                 break;
             default:
@@ -130,4 +133,47 @@ public class LoginTests {
         Assert.assertTrue(homePage.isPageLoaded());
 
     }
-}
+
+
+   /* @Test
+    public void testGetSingleUser() {
+        expect().
+                statusCode(200).
+                body(
+                        "title", equalTo("Verify successfull user login")
+                ).
+                when().
+                get("https://okniaziev.testrail.net/index.php?/api/v2/get_case/1");
+    }*/
+   @Test
+   public void testAdd(){
+       // Get status code
+       Response response = get("/index.php?/api/v2/get_case/1https://okniaziev.testrail.net");
+    int statusCode = response.getStatusCode();
+       assertEquals(statusCode,200);
+   }
+
+    /*@Test
+    public void andad(){
+        //Response response = get("https://okniaziev.testrail.net/index.php?/api/v2/get_case/1");;
+        //int statusCode = response.getStatusCode();
+        Response response = get("https://okniaziev.testrail.net/index.php?/api/v2/get_case/1");
+        response.then().assertThat().statusCode(200);
+    }*/
+
+
+   /* @Test
+    public void testAdd() throws IOException {
+
+        URL url = new URL("https://okniaziev.testrail.net/");
+        URLConnection connect = url.openConnection();
+        Response res = (Response) get("https://okniaziev.testrail.net/index.php?/api/v2/get_case/1");
+        int respCode = ((HttpURLConnection) connect).getResponseCode();
+        assertEquals(respCode,200);
+
+    }*/
+
+
+    }
+
+
