@@ -1,0 +1,77 @@
+package com.linkedin;
+
+
+import com.jayway.restassured.RestAssured;
+import com.jayway.restassured.http.ContentType;
+import com.jayway.restassured.response.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import static com.jayway.restassured.RestAssured.*;
+import static junit.framework.Assert.assertEquals;
+
+public class TestRailRESTTests {
+
+    @BeforeClass
+    public void beforeClass() {
+        RestAssured.baseURI = "https://okniaziev.testrail.net";
+        RestAssured.authentication = basic("knyazev.alexandr@gmail.com", "w2WMNr7giNex1DUkH3TP");
+        RestAssured.requestContentType(ContentType.JSON);
+
+
+    }
+
+    @Test
+    public void getTestCaseTest() {
+        int testCaseId = 1;
+        Response responce = given().header("Authorization", "Basic a255YXpldi5hbGV4YW5kckBnbWFpbC5jb206dzJXTU5yN2dpTmV4MURVa0gzVFA=")
+                .when().get("/index.php?/api/v2/get_case/{t}", testCaseId);
+
+        //System.out.println("Status code - "+ responce.getStatusCode());
+
+        //print out json
+        System.out.println(responce.asString());
+        String testCaseTitle = "Verify successfull user login";
+        Assert.assertTrue(responce.asString().contains(testCaseTitle), "Test case title not found in output");
+        Assert.assertEquals(responce.getStatusCode(), 200, "Status code is wrong");
+    }
+
+    @Test
+    public void test2() {
+        given()
+                .header("Authorization", "Basic a255YXpldi5hbGV4YW5kckBnbWFpbC5jb206dzJXTU5yN2dpTmV4MURVa0gzVFA=")
+                .expect()
+                .statusCode(200)
+                .response()
+                .when()
+                .get("/index.php?/api/v2/get_case/1");
+    }
+
+    @Test
+    public void SetTesCaseStatusTest() throws JSONException {
+        int testCaseId = 1;
+        int testCaseStatus = 2;
+        JSONObject obj = new JSONObject();
+        obj.put("status_id", testCaseStatus);
+        Response responce = given().header("Authorization", "Basic a255YXpldi5hbGV4YW5kckBnbWFpbC5jb206dzJXTU5yN2dpTmV4MURVa0gzVFA=")
+                .body(obj.toString())
+                .when().post("/index.php?/api/v2/add_result/{t}", testCaseId);
+                        System.out.println(responce.asString());
+        Assert.assertTrue(responce.asString().contains("\"status_id\":"+testCaseStatus),"Status id was not set");
+        Assert.assertEquals(200, responce.getStatusCode(), "Status code is wrong");
+
+
+        //System.out.println("Status code - "+ responce.getStatusCode());
+
+        /*print out json
+        System.out.println(responce.asString());
+        String testCaseTitle = "Verify successfull user login";
+        Assert.assertTrue(responce.asString().contains(testCaseTitle), "Test case title not found in output");
+        Assert.assertEquals(responce.getStatusCode(), 200, "Status code is wrong");
+        */
+
+    }
+}
