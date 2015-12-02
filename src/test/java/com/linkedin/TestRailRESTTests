@@ -66,12 +66,12 @@ public class TestRailRESTTests {
 
         //System.out.println("Status code - "+ responce.getStatusCode());
 
-        /*print out json
+        print out json
         System.out.println(responce.asString());
         String testCaseTitle = "Verify successfull user login";
         Assert.assertTrue(responce.asString().contains(testCaseTitle), "Test case title not found in output");
         Assert.assertEquals(responce.getStatusCode(), 200, "Status code is wrong");
-        */
+
 
     }
 }
