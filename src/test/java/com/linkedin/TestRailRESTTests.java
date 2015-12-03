@@ -28,12 +28,13 @@ public class TestRailRESTTests {
 
     @DataProvider(name = "Priorities")
     public Object[][] createdata() {
-        return new Object[][] {
-                new Object[] { 1 },
-                new Object[] { 2 },
-                new Object[] { 3 },
-                new Object[] { 222}};
+        return new Object[][]{
+                new Object[]{1},
+                new Object[]{2},
+                new Object[]{3},
+                new Object[]{222}};
     }
+
 
     @Test
     public void getTestCaseTest() {
@@ -75,13 +76,13 @@ public class TestRailRESTTests {
         Assert.assertEquals(200, response.getStatusCode(), "Status code is wrong");
 
     }
-        //System.out.println("Status code - "+ responce.getStatusCode());
+    //System.out.println("Status code - "+ responce.getStatusCode());
 
-       /* print out json
-        System.out.println(responce.asString());
-        String testCaseTitle = "Verify successfull user login";
-        Assert.assertTrue(responce.asString().contains(testCaseTitle), "Test case title not found in output");
-        Assert.assertEquals(responce.getStatusCode(), 200, "Status code is wrong");
+    /* print out json
+     System.out.println(responce.asString());
+     String testCaseTitle = "Verify successfull user login";
+     Assert.assertTrue(responce.asString().contains(testCaseTitle), "Test case title not found in output");
+     Assert.assertEquals(responce.getStatusCode(), 200, "Status code is wrong");
 */
 /////////////////////////////////////////////////////////////////
     //Test possibility of status update
@@ -95,27 +96,26 @@ public class TestRailRESTTests {
                 .when().post("/index.php?/api/v2/update_case/{t}", testCaseId);
         switch (testCasePriority) {
             case 1:
-                System.out.println("Test case priority is set to "+testCasePriority);
-                 Assert.assertEquals(200, response.getStatusCode(), "Priority id is wrong");
+                System.out.println("Test case priority is set to " + testCasePriority);
+                Assert.assertEquals(200, response.getStatusCode(), "Priority id is wrong");
                 break;
             case 2:
-                System.out.println("Test case priority is set to "+testCasePriority);
-                Assert.assertTrue(response.asString().contains("\"priority_id\":" + testCasePriority), "Priority id was not set");
+                System.out.println("Test case priority is set to " + testCasePriority);
+                Assert.assertEquals(200, response.getStatusCode(), "Priority id is wrong");
                 break;
             case 3:
-                System.out.println("Test case priority is set to "+testCasePriority);
-                Assert.assertTrue(response.asString().contains("\"priority_id\":" + testCasePriority), "Priority id was not set");
+                System.out.println("Test case priority is set to " + testCasePriority);
+                Assert.assertEquals(200, response.getStatusCode(), "Priority id is wrong");
                 break;
             case 222:
-                System.out.println("Test case priority is set to "+testCasePriority);
+                System.out.println("Test case priority is set to " + testCasePriority);
                 Assert.assertTrue(response.asString().contains("is not a valid priority"));
                 break;
             default:
                 break;
         }
-            System.out.println(response.asString());
-        }
 
+    }
 //Checking user name
     @Test
     public void checkUserDetails() {
@@ -127,13 +127,55 @@ public class TestRailRESTTests {
     }
 
     //Testing adding new run with add_run
-    @Test
+    /*@Test
     public void addNewRun() {
         Response response = given().header("Authorization", "Basic a255YXpldi5hbGV4YW5kckBnbWFpbC5jb206dzJXTU5yN2dpTmV4MURVa0gzVFA=")
-                .when().post("index.php?/api/v2/add_run/1");
+                .when().post("index.php?/api/v2/add_run/1");*/
+/* Add run test
+        public class ExampleDataProvider {
+        @DataProvider(name = "Descritption")
+        public Object[][] createdata(){
+            return new Object[][] {
+                    new Object[] { "First" },
+                    new Object[] { "second" }};
+        }
+        @Test(dataProvider = "Descritption", dataProviderClass = ExampleDataProvider.class)
+    public void addRun(String descriptionOf) throws JSONException {
+        int testCaseId = 1;
+        boolean include_all = true;
+        JSONObject obj = new JSONObject();
+        obj.put("descriptionOf", include_all);
+        Response response = given().header("Authorization", "Basic a255YXpldi5hbGV4YW5kckBnbWFpbC5jb206dzJXTU5yN2dpTmV4MURVa0gzVFA=")
+                .body(obj.toString())
+                .when().post("/index.php?/api/v2/update_run/{t}", testCaseId);
+            switch (descriptionOf) {
+                case "First":
+                    System.out.println("Test run description is set to "+descriptionOf);
+                    Assert.assertEquals(200, response.getStatusCode(), "Description was not set");
+                    break;
+                case "second":
+                    System.out.println("Test run description is set to "+descriptionOf);
+                    Assert.assertEquals(200, response.getStatusCode(), "Description was not set");
+                    break;
+                default:
+                    break;
+                                }
+*/
+        @Test
+        public void addRunTwo(String descriptionOf, boolean include_all) throws JSONException {
+            int testCaseId = 1;
+            include_all = true;
+            descriptionOf = "first";
 
-    }
+            JSONObject obj = new JSONObject();
+            obj.put("descriptionOf", include_all);
+            Response response = given().header("Authorization", "Basic a255YXpldi5hbGV4YW5kckBnbWFpbC5jb206dzJXTU5yN2dpTmV4MURVa0gzVFA=")
+                    .body(obj.toString())
+                    .when().post("/index.php?/api/v2/update_run/{t}", testCaseId);
 
+            System.out.println(response.asString());
+            Assert.assertEquals(200, response.getStatusCode(), "Status code is wrong");
+            Assert.assertTrue(response.asString().contains(descriptionOf), "Description was not set");
+        }
+}
 
-
-    }
