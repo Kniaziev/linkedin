@@ -162,10 +162,10 @@ public class TestRailRESTTests {
                                 }
 */
         @Test
-        public void addRunTwo(String descriptionOf, boolean include_all) throws JSONException {
+        public void addRunTwo(String description, boolean include_all) throws JSONException {
             int testCaseId = 1;
             include_all = true;
-            descriptionOf = "first";
+            description = "first";
 
             JSONObject obj = new JSONObject();
             obj.put("descriptionOf", include_all);
@@ -175,7 +175,7 @@ public class TestRailRESTTests {
 
             System.out.println(response.asString());
             Assert.assertEquals(200, response.getStatusCode(), "Status code is wrong");
-            Assert.assertTrue(response.asString().contains(descriptionOf), "Description was not set");
+            Assert.assertTrue(response.asString().contains(description), "Description was not set");
         }
 }
 
