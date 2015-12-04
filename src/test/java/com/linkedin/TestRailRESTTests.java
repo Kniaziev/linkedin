@@ -4,6 +4,7 @@ package com.linkedin;
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.response.Response;
+import com.jayway.restassured.specification.RequestSpecification;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.testng.Assert;
@@ -15,6 +16,8 @@ import static com.jayway.restassured.RestAssured.basic;
 import static com.jayway.restassured.RestAssured.given;
 
 public class TestRailRESTTests {
+
+    private RequestSpecification spec;
 
     @BeforeClass
     public void beforeClass() {
@@ -181,11 +184,10 @@ public class TestRailRESTTests {
  @Test
         public void addRunTwo() throws JSONException {
             int testCaseId = 1;
-            boolean include_all = true;
-            String description = "first";
+           String description = "first";
 
             JSONObject obj = new JSONObject();
-            obj.put(description, include_all);
+            obj.put("description", description);
             Response response = given().header("Authorization", "Basic a255YXpldi5hbGV4YW5kckBnbWFpbC5jb206dzJXTU5yN2dpTmV4MURVa0gzVFA=")
                     .body(obj.toString())
                     .when().post("/index.php?/api/v2/update_run/{t}", testCaseId);
@@ -195,4 +197,12 @@ public class TestRailRESTTests {
             Assert.assertTrue(response.asString().contains(description), "Description was not set");
             //Assert.assertTrue(response.asString().contains("\"description\":" + descriptionOf), "Description was not set");
         }
+    /*spec = RestAssured.with();
+    given().
+    spec(DefaultHeaders.DEFAULT_REQUEST_SPECIFICATION_AUTH).
+    headers(headersAll).body
+    spec(DefaultHeaders.DEFAULT_REQUEST_SPECIFICATION_AUTH).
+    headers(headers).and().headers(DefaultHeaders.HEADERS_DEFAULT_ALL);
+*/
+
     }
