@@ -161,14 +161,14 @@ public class TestRailRESTTests {
                     break;
                                 }
 */
-        @Test
-        public void addRunTwo(String description, boolean include_all) throws JSONException {
+       /* @Test
+        public void addRunTwo() throws JSONException {
             int testCaseId = 1;
-            include_all = true;
-            description = "first";
+            String description = "first";
+            boolean include_all = true;
 
             JSONObject obj = new JSONObject();
-            obj.put("descriptionOf", include_all);
+            obj.put("description", include_all);
             Response response = given().header("Authorization", "Basic a255YXpldi5hbGV4YW5kckBnbWFpbC5jb206dzJXTU5yN2dpTmV4MURVa0gzVFA=")
                     .body(obj.toString())
                     .when().post("/index.php?/api/v2/update_run/{t}", testCaseId);
@@ -176,6 +176,23 @@ public class TestRailRESTTests {
             System.out.println(response.asString());
             Assert.assertEquals(200, response.getStatusCode(), "Status code is wrong");
             Assert.assertTrue(response.asString().contains(description), "Description was not set");
-        }
-}
+        }*/
 
+ @Test
+        public void addRunTwo() throws JSONException {
+            int testCaseId = 1;
+            boolean include_all = true;
+            String description = "first";
+
+            JSONObject obj = new JSONObject();
+            obj.put(description, include_all);
+            Response response = given().header("Authorization", "Basic a255YXpldi5hbGV4YW5kckBnbWFpbC5jb206dzJXTU5yN2dpTmV4MURVa0gzVFA=")
+                    .body(obj.toString())
+                    .when().post("/index.php?/api/v2/update_run/{t}", testCaseId);
+
+            System.out.println(response.asString());
+            Assert.assertEquals(200, response.getStatusCode(), "Status code is wrong");
+            Assert.assertTrue(response.asString().contains(description), "Description was not set");
+            //Assert.assertTrue(response.asString().contains("\"description\":" + descriptionOf), "Description was not set");
+        }
+    }
