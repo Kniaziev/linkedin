@@ -148,3 +148,16 @@ public class TestRailRESTTests {
      Assert.assertTrue(responce.asString().contains(testCaseTitle), "Test case title not found in output");
      Assert.assertEquals(responce.getStatusCode(), 200, "Status code is wrong");
 */
+
+List<WebElement> searchLinks = driver.find elements(By.cssSelector('#tblPriorEventsBody td a'));
+
+Iterator<WebElement> iter = searchLinks.iterator();
+
+for(iter.hasNext()) {
+    WebElement we = iter.next(){
+    we.click
+    }
+    }
+searchLinks.get(i).click()
+driver.navigate().back()
+

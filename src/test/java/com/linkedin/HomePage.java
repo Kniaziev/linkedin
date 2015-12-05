@@ -40,9 +40,4 @@ public class HomePage extends AbstractPage{
         searchButton.click();
         return initElements(driver, SearchpageResults.class);
     }
-    //public HomePage homePage;
-   public void close() {
-        driver.quit();
-       }
-
 }

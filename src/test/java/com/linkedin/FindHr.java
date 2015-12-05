@@ -3,10 +3,9 @@ package com.linkedin;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import javax.naming.directory.SearchResult;
 
 /**
  * Created by Administrator on 12/5/2015.
@@ -28,13 +27,23 @@ public class FindHr extends AbstractPage {
     }
 
     @Test
-    public void HomePage (){
+    public void checkHrPosition (){
         homePage = loginRegistrationPage.loginUser(userEmail,userPass);
         searchpageResults = homePage.SearchForHr();
-        hrProfilePages = searchpageResults.findAllLinks();
-        hrProfilePages.checkPosition();
+        hrProfilePages = searchpageResults.openHrProfilePage();
+        Assert.assertTrue(hrProfilePages.checkPosition());
+        searchpageResults = hrProfilePages.goBackToSearch();
+
 
 
     }
+
+    /*
+
+    for(WebElement searchLinks: elements){
+    assertTrue(searchLinks.getText().contains("HR"));
+    *
+    *
+    * */
 
 }
