@@ -22,8 +22,6 @@ public class HrProfilePages extends AbstractPage {
 
     public boolean checkPosition() {
                 hrPosition.isDisplayed();
-                //driver.navigate().back();
-
         return true;
     }
 

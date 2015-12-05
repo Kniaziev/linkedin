@@ -30,10 +30,9 @@ public class FindHr extends AbstractPage {
     public void checkHrPosition (){
         homePage = loginRegistrationPage.loginUser(userEmail,userPass);
         searchpageResults = homePage.SearchForHr();
-        hrProfilePages = searchpageResults.openHrProfilePage();
+        searchpageResults.openHrProfilePage();
         Assert.assertTrue(hrProfilePages.checkPosition());
-        searchpageResults = hrProfilePages.goBackToSearch();
-
+        //searchpageResults = hrProfilePages.goBackToSearch();
 
 
     }

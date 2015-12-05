@@ -161,3 +161,21 @@ for(iter.hasNext()) {
 searchLinks.get(i).click()
 driver.navigate().back()
 
+
+
+
+
+
+
+
+/////////////
+
+List<WebElement> AllPageLinks = myTestDriver.findElements(By.tagName("a"));
+
+ System.out.println(searchPageLinks.size());
+
+ for(int i =0 ; i<searchPageLinks.size();i++){
+ if(searchPageLinks.get(i).getText()!="")
+ AllPageLinks.get(i).click();
+ }
+
