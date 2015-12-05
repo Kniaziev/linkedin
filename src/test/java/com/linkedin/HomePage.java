@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static org.openqa.selenium.support.PageFactory.initElements;
+
 public class HomePage extends AbstractPage{
     protected WebDriver driver;
 //nado update page object chtobi nasledovalo ot Abstrakta.
@@ -16,6 +18,12 @@ public class HomePage extends AbstractPage{
     @FindBy(xpath = "//a[contains(text(),'Profile')]")
     private WebElement profileMenuLink;
 
+    @FindBy(id = "main-search-box")
+    private WebElement searchBox;
+
+    @FindBy(xpath = "//*[@id='global-search']/fieldset/button")
+    private WebElement searchButton;
+
     public ProfilePage openProfilePage(){
         profileMenuLink.click();
         return PageFactory.initElements(driver, ProfilePage.class);
@@ -26,6 +34,11 @@ public class HomePage extends AbstractPage{
             return true;
         }
         return false;
+    }
+    public SearchpageResults SearchForHr(){
+        searchBox.sendKeys("HR");
+        searchButton.click();
+        return initElements(driver, SearchpageResults.class);
     }
     //public HomePage homePage;
    public void close() {

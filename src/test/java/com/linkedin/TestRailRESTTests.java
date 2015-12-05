@@ -79,14 +79,7 @@ public class TestRailRESTTests {
         Assert.assertEquals(200, response.getStatusCode(), "Status code is wrong");
 
     }
-    //System.out.println("Status code - "+ responce.getStatusCode());
 
-    /* print out json
-     System.out.println(responce.asString());
-     String testCaseTitle = "Verify successfull user login";
-     Assert.assertTrue(responce.asString().contains(testCaseTitle), "Test case title not found in output");
-     Assert.assertEquals(responce.getStatusCode(), 200, "Status code is wrong");
-*/
 /////////////////////////////////////////////////////////////////
     //Test possibility of status update
     @Test(dataProvider = "Priorities")
@@ -100,19 +93,23 @@ public class TestRailRESTTests {
         switch (testCasePriority) {
             case 1:
                 System.out.println("Test case priority is set to " + testCasePriority);
-                Assert.assertEquals(200, response.getStatusCode(), "Priority id is wrong");
+                Assert.assertEquals(200, response.getStatusCode(), "Status code is wrong");
                 break;
             case 2:
                 System.out.println("Test case priority is set to " + testCasePriority);
-                Assert.assertEquals(200, response.getStatusCode(), "Priority id is wrong");
+                //Assert.assertEquals(200, response.getStatusCode(), "Priority id is wrong");
+                Assert.assertTrue(response.asString().contains("\"priority_id\":" + testCasePriority));
                 break;
             case 3:
                 System.out.println("Test case priority is set to " + testCasePriority);
-                Assert.assertEquals(200, response.getStatusCode(), "Priority id is wrong");
+                Assert.assertEquals(200, response.getStatusCode(), "Status code is wrong");
                 break;
             case 222:
-                System.out.println("Test case priority is set to " + testCasePriority);
+                System.out.println("Trying to set priority to " + testCasePriority+ " and it is not a valid priority");
                 Assert.assertTrue(response.asString().contains("is not a valid priority"));
+                Assert.assertFalse(response.asString().contains("\"priority_id\":" + testCasePriority), "Test case priority is set to " + testCasePriority+ "and it is not a valid priority");
+                System.out.println(response.asString().contains("is not a valid priority"));
+
                 break;
             default:
                 break;
@@ -120,71 +117,20 @@ public class TestRailRESTTests {
 
     }
 //Checking user name
-    @Test
-    public void checkUserDetails() {
-       Response response = given().header("Authorization", "Basic a255YXpldi5hbGV4YW5kckBnbWFpbC5jb206dzJXTU5yN2dpTmV4MURVa0gzVFA=")
-                .when().get("index.php?/api/v2/get_user_by_email&email=knyazev.alexandr@gmail.com");
-        System.out.println(response.asString());
-        Assert.assertEquals(200, response.getStatusCode(), "Status code is wrong");
-        Assert.assertTrue(response.asString().contains("Oleksandr Kniaziev"), "User not found");
-    }
-
-    //Testing adding new run with add_run
-    /*@Test
-    public void addNewRun() {
-        Response response = given().header("Authorization", "Basic a255YXpldi5hbGV4YW5kckBnbWFpbC5jb206dzJXTU5yN2dpTmV4MURVa0gzVFA=")
-                .when().post("index.php?/api/v2/add_run/1");*/
-/* Add run test
-        public class ExampleDataProvider {
-        @DataProvider(name = "Descritption")
-        public Object[][] createdata(){
-            return new Object[][] {
-                    new Object[] { "First" },
-                    new Object[] { "second" }};
-        }
-        @Test(dataProvider = "Descritption", dataProviderClass = ExampleDataProvider.class)
-    public void addRun(String descriptionOf) throws JSONException {
-        int testCaseId = 1;
-        boolean include_all = true;
-        JSONObject obj = new JSONObject();
-        obj.put("descriptionOf", include_all);
-        Response response = given().header("Authorization", "Basic a255YXpldi5hbGV4YW5kckBnbWFpbC5jb206dzJXTU5yN2dpTmV4MURVa0gzVFA=")
-                .body(obj.toString())
-                .when().post("/index.php?/api/v2/update_run/{t}", testCaseId);
-            switch (descriptionOf) {
-                case "First":
-                    System.out.println("Test run description is set to "+descriptionOf);
-                    Assert.assertEquals(200, response.getStatusCode(), "Description was not set");
-                    break;
-                case "second":
-                    System.out.println("Test run description is set to "+descriptionOf);
-                    Assert.assertEquals(200, response.getStatusCode(), "Description was not set");
-                    break;
-                default:
-                    break;
-                                }
-*/
-       /* @Test
-        public void addRunTwo() throws JSONException {
-            int testCaseId = 1;
-            String description = "first";
-            boolean include_all = true;
-
-            JSONObject obj = new JSONObject();
-            obj.put("description", include_all);
+        @Test
+        public void checkUserDetails() {
             Response response = given().header("Authorization", "Basic a255YXpldi5hbGV4YW5kckBnbWFpbC5jb206dzJXTU5yN2dpTmV4MURVa0gzVFA=")
-                    .body(obj.toString())
-                    .when().post("/index.php?/api/v2/update_run/{t}", testCaseId);
-
+                    .when().get("index.php?/api/v2/get_user_by_email&email=knyazev.alexandr@gmail.com");
             System.out.println(response.asString());
             Assert.assertEquals(200, response.getStatusCode(), "Status code is wrong");
-            Assert.assertTrue(response.asString().contains(description), "Description was not set");
-        }*/
+            Assert.assertTrue(response.asString().contains("Oleksandr Kniaziev"), "User not found");
+    }
 
- @Test
+
+        @Test
         public void addRunTwo() throws JSONException {
             int testCaseId = 1;
-           String description = "first";
+           String description = "saturday second test";
 
             JSONObject obj = new JSONObject();
             obj.put("description", description);
@@ -197,12 +143,5 @@ public class TestRailRESTTests {
             Assert.assertTrue(response.asString().contains(description), "Description was not set");
             //Assert.assertTrue(response.asString().contains("\"description\":" + descriptionOf), "Description was not set");
         }
-    /*spec = RestAssured.with();
-    given().
-    spec(DefaultHeaders.DEFAULT_REQUEST_SPECIFICATION_AUTH).
-    headers(headersAll).body
-    spec(DefaultHeaders.DEFAULT_REQUEST_SPECIFICATION_AUTH).
-    headers(headers).and().headers(DefaultHeaders.HEADERS_DEFAULT_ALL);
-*/
 
     }

@@ -1,0 +1,150 @@
+package com.linkedin;
+
+
+import com.jayway.restassured.RestAssured;
+import com.jayway.restassured.http.ContentType;
+import com.jayway.restassured.response.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import static com.jayway.restassured.RestAssured.*;
+import static junit.framework.Assert.assertEquals;
+
+public class TestRailRESTTests {
+
+    @BeforeClass
+    public void beforeClass() {
+        RestAssured.baseURI = "https://okniaziev.testrail.net";
+        RestAssured.authentication = basic("knyazev.alexandr@gmail.com", "w2WMNr7giNex1DUkH3TP");
+        RestAssured.requestContentType(ContentType.JSON);
+
+
+    }
+
+    @Test
+    public void getTestCaseTest() {
+        int testCaseId = 1;
+        Response responce = given().header("Authorization", "Basic a255YXpldi5hbGV4YW5kckBnbWFpbC5jb206dzJXTU5yN2dpTmV4MURVa0gzVFA=")
+                .when().get("/index.php?/api/v2/get_case/{t}", testCaseId);
+
+        //System.out.println("Status code - "+ responce.getStatusCode());
+
+        //print out json
+        System.out.println(responce.asString());
+        String testCaseTitle = "Verify successfull user login";
+        Assert.assertTrue(responce.asString().contains(testCaseTitle), "Test case title not found in output");
+        Assert.assertEquals(responce.getStatusCode(), 200, "Status code is wrong");
+    }
+
+    @Test
+    public void test2() {
+        given()
+                .header("Authorization", "Basic a255YXpldi5hbGV4YW5kckBnbWFpbC5jb206dzJXTU5yN2dpTmV4MURVa0gzVFA=")
+                .expect()
+                .statusCode(200)
+                .response()
+                .when()
+                .get("/index.php?/api/v2/get_case/1");
+    }
+
+    @Test
+    public void SetTesCaseStatusTest() throws JSONException {
+        int testCaseId = 1;
+        int testCaseStatus = 2;
+        JSONObject obj = new JSONObject();
+        obj.put("status_id", testCaseStatus);
+        Response responce = given().header("Authorization", "Basic a255YXpldi5hbGV4YW5kckBnbWFpbC5jb206dzJXTU5yN2dpTmV4MURVa0gzVFA=")
+                .body(obj.toString())
+                .when().post("/index.php?/api/v2/add_result/{t}", testCaseId);
+                        System.out.println(responce.asString());
+        Assert.assertTrue(responce.asString().contains("\"status_id\":"+testCaseStatus),"Status id was not set");
+        Assert.assertEquals(200, responce.getStatusCode(), "Status code is wrong");
+
+
+        //System.out.println("Status code - "+ responce.getStatusCode());
+
+        print out json
+        System.out.println(responce.asString());
+        String testCaseTitle = "Verify successfull user login";
+        Assert.assertTrue(responce.asString().contains(testCaseTitle), "Test case title not found in output");
+        Assert.assertEquals(responce.getStatusCode(), 200, "Status code is wrong");
+
+
+    }
+}
+
+
+       /* @Test
+        public void addRunTwo() throws JSONException {
+            int testCaseId = 1;
+            String description = "first";
+            boolean include_all = true;
+
+            JSONObject obj = new JSONObject();
+            obj.put("description", include_all);
+            Response response = given().header("Authorization", "Basic a255YXpldi5hbGV4YW5kckBnbWFpbC5jb206dzJXTU5yN2dpTmV4MURVa0gzVFA=")
+                    .body(obj.toString())
+                    .when().post("/index.php?/api/v2/update_run/{t}", testCaseId);
+
+            System.out.println(response.asString());
+            Assert.assertEquals(200, response.getStatusCode(), "Status code is wrong");
+            Assert.assertTrue(response.asString().contains(description), "Description was not set");
+        }*/
+
+
+
+    //Testing adding new run with add_run
+    /*@Test
+    public void addNewRun() {
+        Response response = given().header("Authorization", "Basic a255YXpldi5hbGV4YW5kckBnbWFpbC5jb206dzJXTU5yN2dpTmV4MURVa0gzVFA=")
+                .when().post("index.php?/api/v2/add_run/1");*/
+/* Add run test
+        public class ExampleDataProvider {
+        @DataProvider(name = "Descritption")
+        public Object[][] createdata(){
+            return new Object[][] {
+                    new Object[] { "First" },
+                    new Object[] { "second" }};
+        }
+        @Test(dataProvider = "Descritption", dataProviderClass = ExampleDataProvider.class)
+    public void addRun(String descriptionOf) throws JSONException {
+        int testCaseId = 1;
+        boolean include_all = true;
+        JSONObject obj = new JSONObject();
+        obj.put("descriptionOf", include_all);
+        Response response = given().header("Authorization", "Basic a255YXpldi5hbGV4YW5kckBnbWFpbC5jb206dzJXTU5yN2dpTmV4MURVa0gzVFA=")
+                .body(obj.toString())
+                .when().post("/index.php?/api/v2/update_run/{t}", testCaseId);
+            switch (descriptionOf) {
+                case "First":
+                    System.out.println("Test run description is set to "+descriptionOf);
+                    Assert.assertEquals(200, response.getStatusCode(), "Description was not set");
+                    break;
+                case "second":
+                    System.out.println("Test run description is set to "+descriptionOf);
+                    Assert.assertEquals(200, response.getStatusCode(), "Description was not set");
+                    break;
+                default:
+                    break;
+                                }
+*/
+
+    /*spec = RestAssured.with();
+    given().
+    spec(DefaultHeaders.DEFAULT_REQUEST_SPECIFICATION_AUTH).
+    headers(headersAll).body
+    spec(DefaultHeaders.DEFAULT_REQUEST_SPECIFICATION_AUTH).
+    headers(headers).and().headers(DefaultHeaders.HEADERS_DEFAULT_ALL);
+*/
+
+    //System.out.println("Status code - "+ responce.getStatusCode());
+
+    /* print out json
+     System.out.println(responce.asString());
+     String testCaseTitle = "Verify successfull user login";
+     Assert.assertTrue(responce.asString().contains(testCaseTitle), "Test case title not found in output");
+     Assert.assertEquals(responce.getStatusCode(), 200, "Status code is wrong");
+*/
