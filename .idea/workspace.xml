@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e3f9dd6c-3747-4c42-9e02-98b370d2b7f4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/linkedin/FindHr.java" afterPath="$PROJECT_DIR$/src/test/java/com/linkedin/FindHr.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/linkedin/SearchpageResults.java" afterPath="$PROJECT_DIR$/src/test/java/com/linkedin/SearchpageResults.java" />
     </list>
     <ignored path="test-automation.iws" />
@@ -34,7 +35,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/LoginTests.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="154" column="0" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
+              <caret line="131" column="39" selection-start-line="131" selection-start-column="39" selection-end-line="131" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/FindHr.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -86,18 +87,21 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/HrProfilePages.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+              <caret line="23" column="38" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Draft" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/Draft">
+      <file leaf-file-name="RecoveryPageNext.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/RecoveryPageNext.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="176" column="0" selection-start-line="176" selection-start-column="0" selection-end-line="179" selection-end-column="2" />
-              <folding />
+              <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+              <folding>
+                <element signature="e#329#330#0" expanded="true" />
+                <element signature="e#365#366#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -105,13 +109,11 @@
       <file leaf-file-name="SearchpageResults.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/SearchpageResults.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6556962">
-              <caret line="37" column="3" selection-start-line="37" selection-start-column="3" selection-end-line="37" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.27698573">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#411#412#0" expanded="true" />
-                <element signature="e#447#448#0" expanded="true" />
-                <element signature="e#757#765#0" expanded="true" />
+                <element signature="e#668#676#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -177,8 +179,8 @@
         <option value="$PROJECT_DIR$/src/test/java/com/linkedin/TestIteration.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/linkedin/FindAllLinks.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/linkedin/Draft" />
-        <option value="$PROJECT_DIR$/src/test/java/com/linkedin/FindHr.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/linkedin/SearchpageResults.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/linkedin/FindHr.java" />
       </list>
     </option>
   </component>
@@ -260,7 +262,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -307,11 +309,11 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/IRPAUTO/IRPAUTO" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
@@ -780,38 +782,44 @@
       <option name="project" value="LOCAL" />
       <updated>1449356286320</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="can't resolve problem. can't navigate to a next link from list.">
+      <created>1449396947198</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1449396947198</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FindHr_checkHrPosition - 2015.12.06 at 11h 45m 25s.xml">
+    <history-entry file="FindHr_checkHrPosition - 2015.12.06 at 21h 29m 25s.xml">
       <configuration name="FindHr.checkHrPosition" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="FindHr_checkHrPosition - 2015.12.06 at 11h 47m 19s.xml">
+    <history-entry file="FindHr_checkHrPosition - 2015.12.06 at 21h 30m 11s.xml">
       <configuration name="FindHr.checkHrPosition" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="FindHr_checkHrPosition - 2015.12.06 at 11h 48m 51s.xml">
+    <history-entry file="FindHr_checkHrPosition - 2015.12.06 at 21h 30m 50s.xml">
       <configuration name="FindHr.checkHrPosition" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="FindHr_checkHrPosition - 2015.12.06 at 11h 50m 08s.xml">
+    <history-entry file="FindHr_checkHrPosition - 2015.12.07 at 21h 01m 57s.xml">
       <configuration name="FindHr.checkHrPosition" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="FindHr_checkHrPosition - 2015.12.06 at 11h 53m 59s.xml">
+    <history-entry file="FindHr_checkHrPosition - 2015.12.07 at 21h 25m 16s.xml">
       <configuration name="FindHr.checkHrPosition" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="FindHr_checkHrPosition - 2015.12.06 at 12h 02m 16s.xml">
+    <history-entry file="FindHr_checkHrPosition - 2015.12.07 at 21h 27m 55s.xml">
       <configuration name="FindHr.checkHrPosition" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="FindHr_checkHrPosition - 2015.12.06 at 12h 05m 21s.xml">
+    <history-entry file="FindHr_checkHrPosition - 2015.12.07 at 21h 30m 53s.xml">
       <configuration name="FindHr.checkHrPosition" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="FindHr_checkHrPosition - 2015.12.06 at 12h 06m 31s.xml">
+    <history-entry file="FindHr_checkHrPosition - 2015.12.07 at 21h 38m 03s.xml">
       <configuration name="FindHr.checkHrPosition" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="FindHr_checkHrPosition - 2015.12.06 at 12h 07m 28s.xml">
+    <history-entry file="FindHr_checkHrPosition - 2015.12.07 at 21h 42m 05s.xml">
       <configuration name="FindHr.checkHrPosition" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="FindHr_checkHrPosition - 2015.12.06 at 12h 13m 08s.xml">
+    <history-entry file="FindHr_checkHrPosition - 2015.12.07 at 21h 43m 42s.xml">
       <configuration name="FindHr.checkHrPosition" configurationId="TestNG" />
     </history-entry>
   </component>
@@ -826,10 +834,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.095168374" sideWeight="0.4914163" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15141957" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33280757" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.181388" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.093059935" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24450952" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19765739" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -862,11 +870,12 @@
     <MESSAGE value="api tests added" />
     <MESSAGE value="ignored test problem" />
     <MESSAGE value="FindHR class in process" />
-    <option name="LAST_COMMIT_MESSAGE" value="FindHR class in process" />
+    <MESSAGE value="can't resolve problem. can't navigate to a next link from list." />
+    <option name="LAST_COMMIT_MESSAGE" value="can't resolve problem. can't navigate to a next link from list." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="12" />
+      <option name="time" value="13" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1222,17 +1231,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/RecoveryPageNext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
-          <folding>
-            <element signature="e#329#330#0" expanded="true" />
-            <element signature="e#365#366#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/Draft">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1245,30 +1243,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/Email.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="38" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/HomePage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/HrProfilePages.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1291,10 +1265,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/FindHr.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/RecoveryPageNext.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+          <folding>
+            <element signature="e#329#330#0" expanded="true" />
+            <element signature="e#365#366#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/HomePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/HrProfilePages.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="38" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/Email.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="38" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -1302,22 +1303,28 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/LoginTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="154" column="0" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
+          <caret line="131" column="39" selection-start-line="131" selection-start-column="39" selection-end-line="131" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/FindHr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/linkedin/SearchpageResults.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6556962">
-          <caret line="37" column="3" selection-start-line="37" selection-start-column="3" selection-end-line="37" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.27698573">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#411#412#0" expanded="true" />
-            <element signature="e#447#448#0" expanded="true" />
-            <element signature="e#757#765#0" expanded="true" />
+            <element signature="e#668#676#0" expanded="true" />
           </folding>
         </state>
       </provider>
