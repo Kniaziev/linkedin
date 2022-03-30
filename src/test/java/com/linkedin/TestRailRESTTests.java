@@ -21,8 +21,8 @@ public class TestRailRESTTests {
 
     @BeforeClass
     public void beforeClass() {
-        RestAssured.baseURI = "https://okniaziev.testrail.net";
-        RestAssured.authentication = basic("knyazev.alexandr@gmail.com", "w2WMNr7giNex1DUkH3TP");
+        RestAssured.baseURI = "https://***.testrail.net";
+        RestAssured.authentication = basic("****@gmail.com", "w2WMNr7giNex1DUkH3TP");
         RestAssured.requestContentType(ContentType.JSON);
 
 
@@ -120,10 +120,10 @@ public class TestRailRESTTests {
         @Test
         public void checkUserDetails() {
             Response response = given().header("Authorization", "Basic a255YXpldi5hbGV4YW5kckBnbWFpbC5jb206dzJXTU5yN2dpTmV4MURVa0gzVFA=")
-                    .when().get("index.php?/api/v2/get_user_by_email&email=knyazev.alexandr@gmail.com");
+                    .when().get("index.php?/api/v2/get_user_by_email&email=*****@gmail.com");
             System.out.println(response.asString());
             Assert.assertEquals(200, response.getStatusCode(), "Status code is wrong");
-            Assert.assertTrue(response.asString().contains("Oleksandr Kniaziev"), "User not found");
+            Assert.assertTrue(response.asString().contains("Oleksandr ****"), "User not found");
     }
 
 
